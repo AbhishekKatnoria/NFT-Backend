@@ -3,11 +3,13 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/user', function (Request $request) {
-    return  $data = [
 
-            'name'    => 'Nick Jones',
-            'email'   => 'jones@gmail.com',
-            'address' => 'Mohali',
-    ];
+/** 
+ * 
+ * API routes
+ * 
+ */
+
+Route::get('/user', function (Request $request) {
 });
+
