@@ -28,7 +28,7 @@
         },
 
         "files":[
-            "app/Helper/utility.php",
+            "app/Helper/ResponseHelper.php",
             "app/Http/Middleware/CheckBrearerToken.php"
         ]
 
