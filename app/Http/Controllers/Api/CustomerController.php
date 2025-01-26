@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator; 
 use Illuminate\Support\Facades\Log; 
-use App\Helpers\ResponseHelper; 
+use App\Helper\ResponseHelper; 
 
 class CustomerController extends Controller
 {
@@ -32,7 +32,7 @@ class CustomerController extends Controller
 
         // Check if validation fails
         if ($validator->fails()) {
-            return ResponseHelper::failResponse($validator->errors(), 422); 
+            return failResponse($validator->errors(), 422); 
         }
 
         try {
@@ -47,7 +47,7 @@ class CustomerController extends Controller
             ]);
 
             // Return a success response
-            return ResponseHelper::successResponse('Account created successfully!', 201);
+            return successResponse('Account created successfully!', 201);
 
         } catch (\Exception $e) {
             Log::error('Error creating customer account: ' . $e->getMessage());
