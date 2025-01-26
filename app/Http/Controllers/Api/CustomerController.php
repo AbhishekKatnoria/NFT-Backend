@@ -20,11 +20,11 @@ class CustomerController extends Controller
     {
 
         // Validate incoming request
-        
+        $passwordRule = passwordRuleFunc();
         $validated = $request->validate([
             'name'     => 'required|string|max:255',
             'email'    => 'required|email|unique:customers,email',
-            'password' => 'required|' . passwordRuleFunc(), 
+            'password' => 'required|'.$passwordRule,
         ]);
 
         try {
