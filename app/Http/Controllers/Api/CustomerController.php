@@ -36,22 +36,24 @@ class CustomerController extends Controller
         }
 
         try {
-            // Get the validated data
-            $validated = $validator->validated();
 
             // Create the customer
             $customer = User::create([
-                'name' => $validated['name'],
-                'email' => $validated['email'],
-                'password' => Hash::make($validated['password']),
+                'name'     => $request->input('name'),
+                'email'    => $request->input('email'),
+                'password' => Hash::make($request->input('password')),
             ]);
 
             // Return a success response
-            return successResponse('Account created successfully!', 201);
+            if($customer) {
+                return successResponse('Account created successfully!', 201);
+            }else{
+                return failResponse('Internal server error', 500);
+            }
 
         } catch (\Exception $e) {
             Log::error('Error creating customer account: ' . $e->getMessage());
-            return response('Internal server error', 500);
+            return failResponse('Internal server error', 500);
         }
     }
 
