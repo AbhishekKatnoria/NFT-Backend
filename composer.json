@@ -25,8 +25,15 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+
+        "files":[
+            "app/Helper/utility.php",
+            "app/Http/Middleware/CheckBrearerToken.php"
+        ]
+
     },
+
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
